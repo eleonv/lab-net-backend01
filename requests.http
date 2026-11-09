@@ -1,0 +1,47 @@
+@baseUrl = http://localhost:5000
+
+### 1. GET ALL: Listar todos los usuarios
+GET {{baseUrl}}/api/users
+Accept: application/json
+
+### 2. GET BY ID: Obtener usuario con ID 1
+GET {{baseUrl}}/api/users/1
+Accept: application/json
+
+### 3. GET BY ID: Usuario inexistente (404 Not Found)
+GET {{baseUrl}}/api/users/999
+Accept: application/json
+
+### 4. POST: Crear un usuario válido (201 Created)
+POST {{baseUrl}}/api/users
+Content-Type: application/json
+
+{
+  "name": "Lucia Fernandez",
+  "email": "lucia.fernandez@example.com",
+  "age": 28
+}
+
+### 5. POST: Datos inválidos (400 Bad Request)
+POST {{baseUrl}}/api/users
+Content-Type: application/json
+
+{
+  "name": "L",
+  "email": "correo-no-valido",
+  "age": 15
+}
+
+### 6. PUT: Actualizar usuario existente (200 OK)
+PUT {{baseUrl}}/api/users/1
+Content-Type: application/json
+
+{
+  "name": "Ana García Actualizada",
+  "email": "ana.actualizada@example.com",
+  "age": 26
+}
+
+### 7. DELETE: Eliminar usuario existente (204 No Content)
+DELETE {{baseUrl}}/api/users/2
+
